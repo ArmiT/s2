@@ -13,9 +13,10 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 before_script:
-  - docker-compose up --build -d
+  - docker-compose up -d
 
 script:
+  - docker-compose exec app npm install
   - docker-compose exec app npm test
 
 after_script:
