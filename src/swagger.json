@@ -14,27 +14,18 @@
     "securityDefinitions": {
         "basic": {
             "type": "basic"
-        },
-        "apiKey": {
-            "type": "apiKey",
-            "name": "api_key",
-            "in": "query"
         }
     },
     "security": [
         {
             "basic": []
-        },
-        {
-            "apiKey": []
         }
     ],
-    "host": "",
     "schemes": [
-        "https"
+        "http"
     ],
     "paths": {
-        "/projects": {
+        "/test": {
             "get": {
                 "summary": "Get projects",
                 "description": "The Projects endpoint returns information about the projects, offered in the sentinel. The response includes all project attrubutes.\n",

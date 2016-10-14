@@ -6,17 +6,31 @@
   "license": "UNLICENSED",
   "scripts": {
     "prestart": "npm install",
-    "pretest": "",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "lints",
+    "test": "mocha",
+    "mocha": "mocha",
     "start": "node src/app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "dependencies": {
+    "config": "^1.21.0",
+    "joi": "^9.0.0-5",
+    "lodash": "^4.16.4",
     "npm": "^2.15.11",
-    "ssh2": "^0.5.2",
     "restify": "^4.0.4",
-    "joi": "^9.0.0-5"
+    "ssh2": "^0.5.2"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "^3.1.1",
+    "eslint-config-hardcore": "^1.0.3",
+    "eslint-plugin-fp": "^2.2.0",
+    "eslint-plugin-promise": "^3.0.0",
+    "lints": "^7.0.0"
   },
   "private": true
 }

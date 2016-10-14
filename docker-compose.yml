@@ -3,6 +3,9 @@
     "services": {
         "app": {
             "image": "mhart/alpine-node",
+            "environment": {
+                "NODE_CONFIG_DIR": "/app/src/config"
+            },
             "command": [
                 "npm",
                 "start"
