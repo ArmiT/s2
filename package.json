@@ -1,0 +1,22 @@
+{
+  "name": "s2",
+  "version": "2.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "UNLICENSED",
+  "scripts": {
+    "prestart": "npm install",
+    "pretest": "",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "npm": "^2.15.11",
+    "ssh2": "^0.5.2",
+    "restify": "^4.0.4",
+    "joi": "^9.0.0-5"
+  },
+  "devDependencies": {
+  },
+  "private": true
+}

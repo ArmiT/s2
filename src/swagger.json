@@ -1,0 +1,145 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "S2 API",
+        "description": "Improved API for S2.",
+        "version": "1.0.0"
+    },
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "basic": {
+            "type": "basic"
+        },
+        "apiKey": {
+            "type": "apiKey",
+            "name": "api_key",
+            "in": "query"
+        }
+    },
+    "security": [
+        {
+            "basic": []
+        },
+        {
+            "apiKey": []
+        }
+    ],
+    "host": "",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/projects": {
+            "get": {
+                "summary": "Get projects",
+                "description": "The Projects endpoint returns information about the projects, offered in the sentinel. The response includes all project attrubutes.\n",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Identifier for a project",
+                        "required": false,
+                        "type": "number"
+                    }
+                ],
+                "tags": [
+                    "Projects"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Array of objects",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Project"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Add project",
+                "description": "Adds a new project with given parameters.\n",
+                "parameters": [
+                    {
+                        "name": "Project",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NewProject"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Projects"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Array with one project definition",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Project"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Project": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier representing a specific project."
+                },
+                "title": {
+                    "type": "string",
+                    "description": "Title for a project."
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "URL for a git repository, that contains a playbooks for this project"
+                },
+                "repository_version": {
+                    "type": "string",
+                    "description": "git version/branch/commit"
+                },
+                "created_at": {
+                    "type": "integer",
+                    "description": "Project creation time."
+                },
+                "updated_at": {
+                    "type": "integer",
+                    "description": "Time of the last update of the project."
+                }
+            }
+        },
+        "NewProject": {
+            "type": "object",
+            "description": "Used when necessary add a new project",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Title for a project."
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "URL for a git repository, that contains a playbooks for this project"
+                },
+                "repository_version": {
+                    "type": "string",
+                    "description": "git version/branch/commit"
+                }
+            }
+        }
+    }
+}
